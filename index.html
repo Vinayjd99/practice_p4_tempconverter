@@ -1,0 +1,48 @@
+<html>
+
+<head>
+	<title>Temperature Converter App</title>
+	<style>
+		* {
+			font-size: 40px;
+		}
+
+		body {
+			background-color: azure;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1>Temprature Converter App</h1>
+		<form>
+			<label>&#176;C</label>
+			<input type="number" step="0.01" id="cel" placeholder="Enter temp in cel" />
+			<br /> <br />
+			<label>&#176;F</label>
+			<input type="number" step="0.01" id="far" placeholder="Enter temp in fah" />
+
+		</form>
+	</center>
+	<script>
+		let cel = document.getElementById("cel");
+		let far = document.getElementById("far");
+
+		cel.addEventListener("input", function () {
+			let c = parseFloat(cel.value);
+			let f = c * (9 / 5) + 32;
+			far.value = f.toFixed(2);
+		})
+
+		far.addEventListener("input", function () {
+			let f = parseFloat(far.value);
+			let c = (f - 32) * (5 / 9);
+			cel.value = c.toFixed(2);
+		})
+
+
+	</script>
+</body>
+
+</html>
